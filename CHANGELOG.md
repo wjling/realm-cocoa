@@ -61,7 +61,8 @@ GM seed.
 
 ### Enhancements
 
-* None.
+* Add the ability to skip calling specific notification blocks when committing
+  a write transaction.
 
 ### Bugfixes
 
@@ -75,6 +76,13 @@ GM seed.
   of process termination.
 * Fix a crash that could occur when working with a `RLMLinkingObject` property
   of an unmanaged object.
+* Deliver collection notifications when beginning a write transaction which
+  advances the read version of a Realm (previously only Realm-level
+  notifications were sent).
+* Fix some scenarios which would lead to inconsistent states when using
+  collection notifications.
+* Fix several race conditions in the notification functionality.
+* Don't send Realm change notifications when canceling a write transaction.
 
 2.0.2 Release notes (2016-10-05)
 =============================================================
