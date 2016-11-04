@@ -37,7 +37,7 @@ public class ObjectiveCSupport {
 
      - parameter results: The Swift based `Results` instance
      */
-    public func rlmResults(results: Results<Object>) -> RLMResults<RLMObject> {
+    public static func rlmResults(results: Results<Object>) -> RLMResults<RLMObject> {
         return results.rlmResults
     }
 
@@ -46,7 +46,7 @@ public class ObjectiveCSupport {
 
      - parameter list: The Swift based `List` instance
      */
-    public func rlmArray(list: List<Object>) -> RLMArray<RLMObject> {
+    public static func rlmArray(list: List<Object>) -> RLMArray<RLMObject> {
         return list._rlmArray
     }
 
@@ -55,7 +55,7 @@ public class ObjectiveCSupport {
 
      - parameter rlmResults: The objc based `RLMResults` instance
      */
-    public func results(rlmResults: RLMResults<RLMObject>) -> Results<Object> {
+    public static func results(rlmResults: RLMResults<RLMObject>) -> Results<Object> {
         return Results<Object>(rlmResults)
     }
 
@@ -64,7 +64,7 @@ public class ObjectiveCSupport {
 
      - parameter rlmArray: The objc based `RLMArray` instance
      */
-    public func list(rlmArray: RLMArray<RLMObject>) -> List<Object> {
+    public static func list(rlmArray: RLMArray<RLMObject>) -> List<Object> {
         return List<Object>(rlmArray: rlmArray)
     }
 
@@ -75,7 +75,7 @@ public class ObjectiveCSupport {
 
      - parameter results: The Swift based `Results` instance
      */
-    public func rlmResults(results: Results<Object>) -> RLMResults {
+    public static func rlmResults(results: Results<Object>) -> RLMResults {
         return results.rlmResults
     }
 
@@ -84,7 +84,7 @@ public class ObjectiveCSupport {
 
      - parameter list: The Swift based `List` instance
      */
-    public func rlmArray(list: List<Object>) -> RLMArray {
+    public static func rlmArray(list: List<Object>) -> RLMArray {
         return list._rlmArray
     }
 
@@ -93,7 +93,7 @@ public class ObjectiveCSupport {
 
      - parameter rlmResults: The objc based `RLMResults` instance
      */
-    public func results(rlmResults: RLMResults) -> Results<Object> {
+    public static func results(rlmResults: RLMResults) -> Results<Object> {
         return Results<Object>(rlmResults)
     }
 
@@ -102,7 +102,7 @@ public class ObjectiveCSupport {
 
      - parameter rlmArray: The objc based `RLMArray` instance
      */
-    public func list(rlmArray: RLMArray) -> List<Object> {
+    public static func list(rlmArray: RLMArray) -> List<Object> {
         return List<Object>(rlmArray: rlmArray)
     }
 
