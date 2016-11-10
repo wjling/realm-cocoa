@@ -278,7 +278,7 @@ public struct Credential {
         self.userInfo = userInfo
     }
 
-    private init(_ credential: RLMSyncCredential) {
+    internal init(_ credential: RLMSyncCredential) {
         self.token = credential.token
         self.provider = credential.provider
         self.userInfo = credential.userInfo
@@ -313,7 +313,7 @@ public struct Credential {
 }
 
 extension RLMSyncCredential {
-    private convenience init(_ credential: Credential) {
+    internal convenience init(_ credential: Credential) {
         self.init(customToken: credential.token, provider: credential.provider, userInfo: credential.userInfo)
     }
 }

@@ -29,6 +29,9 @@ import Realm
  :nodoc:
  **/
 public final class ObjectiveCSupport {
+
+#if swift(>=3.0)
+
     /// Convert a `Results` to a `RLMResults`.
     public static func convert(object: Results<Object>) -> RLMResults<RLMObject> {
         return object.rlmResults
@@ -49,16 +52,6 @@ public final class ObjectiveCSupport {
         return List(rlmArray: object)
     }
 
-    /// Convert a `Realm` to a `RLMRealm`.
-    public static func convert(object: Realm) -> RLMRealm {
-        return object.rlmRealm
-    }
-
-    /// Convert a `RLMRealm` to a `Realm`.
-    public static func convert(object: RLMRealm) -> Realm {
-        return Realm(object)
-    }
-
     /// Convert a `LinkingObjects` to a `RLMResults`.
     public static func convert(object: LinkingObjects<Object>) -> RLMResults<RLMObject> {
         return object.rlmResults
@@ -67,6 +60,50 @@ public final class ObjectiveCSupport {
     /// Convert a `RLMLinkingObjects` to a `Results`.
     public static func convert(object: RLMLinkingObjects<RLMObject>) -> Results<Object> {
         return Results(object)
+    }
+
+#else
+
+    /// Convert a `Results` to a `RLMResults`.
+    public static func convert(object: Results<Object>) -> RLMResults {
+        return object.rlmResults
+    }
+
+    /// Convert a `RLMResults` to a `Results`.
+    public static func convert(object: RLMResults) -> Results<Object> {
+        return Results(object)
+    }
+
+    /// Convert a `List` to a `RLMArray`.
+    public static func convert(object: List<Object>) -> RLMArray {
+        return object._rlmArray
+    }
+
+    /// Convert a `RLMArray` to a `List`.
+    public static func convert(object: RLMArray) -> List<Object> {
+        return List(rlmArray: object)
+    }
+
+    /// Convert a `LinkingObjects` to a `RLMResults`.
+    public static func convert(object: LinkingObjects<Object>) -> RLMResults {
+        return object.rlmResults
+    }
+
+    /// Convert a `RLMLinkingObjects` to a `Results`.
+    public static func convert(object: RLMLinkingObjects) -> Results<Object> {
+        return Results(object)
+    }
+
+#endif
+
+    /// Convert a `Realm` to a `RLMRealm`.
+    public static func convert(object: Realm) -> RLMRealm {
+        return object.rlmRealm
+    }
+
+    /// Convert a `RLMRealm` to a `Realm`.
+    public static func convert(object: RLMRealm) -> Realm {
+        return Realm(object)
     }
 
     /// Convert a `Migration` to a `RLMMigration`.
@@ -116,7 +153,7 @@ public final class ObjectiveCSupport {
 
     /// Convert a `RLMRealmConfiguration` to a Realm.`Configuration`.
     public static func convert(object: RLMRealmConfiguration) -> Realm.Configuration {
-        return .fromRLMRealmConfiguration(rlmConfiguration: object)
+        return .fromRLMRealmConfiguration(object)
     }
 
     /// Convert a `Schema` to a `RLMSchema`.
