@@ -18,7 +18,8 @@ x.x.x Release notes (yyyy-MM-dd)
 
 ### Enhancements
 
-* None.
+* Add `RealmSwift.ObjectiveCSupport.convert(object:)` methods to help write
+  code that interoperates between Realm Objective-C and Realm Swift APIs.
 
 ### Bugfixes
 
